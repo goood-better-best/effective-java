@@ -38,7 +38,6 @@ class Point {
 <br>
 
 ### [장점] - 불변 클래스
-
 ```java
 //코드 17-1
 public final class Complex {

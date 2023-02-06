@@ -58,7 +58,7 @@ oi.add("타입이 달라야한다")
 - 제네릭은 타입 정보가 런타임에 소거된다. (erasure)
     - 즉 원소타입은 컴파일 타임에 검사하고, 런타임 시점에 알수가 없다 
     - 소거는 제네릭 지원 이전의 레거시와 함꼐 사용할 수 있도록 해주는 메커니즘이다.
-- 배열은 제네릭 타입, 매개변수화 타입, 타입 매개변수로 사용할 수 없다
+- 배열은 제네릭 타입, 매개변수화 타입, 타입 매개변수로 사용할 수 없다 (배열과 제네릭은 잘 어우러지지 못한다.)
     - new List<E>[], new List<String>[], newE[] -> 컴파일시 제네릭 배열 생성 오류
         - 왜 제네릭 배열을 만들지 못하게 했을까 -> 타입이 안전하지 않기 때문 --> 컴파일러가 자동 생성한 형반환 코드에서 ClassCastException이 발생하게 된다.
       ~~~ java
@@ -146,7 +146,8 @@ public class Stack<E> {
     }
     
     public E pop() {
-        E result = elements[--size];
+        @SuppressWarnings("unchecked")
+        E result =(E) elements[--size];
     }
     //...
 }
@@ -200,7 +201,7 @@ public static <E> Set<E> union2(Set<E> s1, Set<E> s2){
     ~~~
     - T가 어떤 타입이든 UnaryOperator<T>는 UnarayOperator<Object>가 아니다.
     - 위 함수는 T가 무엇이든 UnaryOperator<T>를 반환하는 항등함수 이므로 @SupressWarning을 통한 안전보장
-      - 상대적dm로 드물지만, 자기 자신이 들어간 표현식을 사용하여 타입 매개변수의 허용 범위를 한정할 수 있다.
+      - 상대적로 드물지만, 자기 자신이 들어간 표현식을 사용하여 타입 매개변수의 허용 범위를 한정할 수 있다.
         -> 재귀적 타입 한정 (recursive type bound)
         - UnaryOperator<String> , UnaryOperator<Number> ... -> 자기과 같은 원소만 비교가능하다.
         - ex Comparable<T>

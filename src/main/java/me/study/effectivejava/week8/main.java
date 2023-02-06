@@ -4,11 +4,11 @@ public class main {
     public static void main(String[] args) {
 //        simpleBox();
 
-//        genericBox();
+        genericBox();
 
 //        numberGenericBox();
 
-        boolean result = GenericMethod();
+//        boolean result = GenericMethod();
 
     }
 
