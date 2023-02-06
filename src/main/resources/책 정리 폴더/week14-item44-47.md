@@ -90,7 +90,11 @@ protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
 
 ### 코드 블록의 장점
 - 지역변수를 수정할 수 있다. 
-  - final , 사실상 finald인 변수만 읽을 수 있음
+  - final , 사실상 final인 변수만 읽을 수 있음
+    - 지역변수는 쓰레드 공유가 안된다.
+    - 람다는 별도의 쓰레드에서 실행이 가능
+    - 다른 쓰레드의 스택 영역의 지역변수를 복사하여 참조한다.
+    - 복사본은 final 이어야한다.
 - return 을 통해 메서드 빠져나가거나 , break or continue문 사용가능
 - 메서드 선언에 명시된 검사 예외를 던진다.
 
