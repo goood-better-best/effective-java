@@ -50,10 +50,4 @@ public class PlantMain {
         System.out.println(plantsByLifeCycle);
 
     }
-
-    public static void main(String[] args) {
-        useOrdinal();
-        useEnumMap();
-    }
-
 }
