@@ -204,6 +204,9 @@ try {
 
 - AbstractSequentialList 예제 
 - <img width="676" alt="image" src="https://user-images.githubusercontent.com/52403454/226875212-15a939be-577b-4ded-8c12-7d3634103a13.png">
+- AbstractList
+- <img width="422" alt="image" src="https://user-images.githubusercontent.com/52403454/226912637-56bfca1c-d0ab-44a7-ab2c-b97502940814.png">
+
 <br>
 
 - 예외를 번역할 때 저수준 예외가 디버깅에 도움이 된다면 예외 연쇄를 사용
